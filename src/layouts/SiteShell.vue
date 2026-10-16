@@ -25,10 +25,15 @@ function scrollToRoute() {
     if (target) {
       if (smoother) {
         smoother.scrollTo(target, true)
-        programmaticScrollUntil = Date.now() + 1200
       } else {
-        target.scrollIntoView()
+        target.scrollIntoView({
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            ? 'auto'
+            : 'smooth',
+          block: 'start',
+        })
       }
+      programmaticScrollUntil = Date.now() + 1200
       return
     }
   }
@@ -85,16 +90,28 @@ onMounted(() => {
   const shell = shellRef.value
   if (shell) {
     mm = gsap.matchMedia()
+
+    // 平滑滚动只在精确指针设备上启用，触屏交给系统原生滚动
     mm.add(
-      '(prefers-reduced-motion: no-preference)',
+      '(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)',
       () => {
         smoother = ScrollSmoother.create({
           wrapper: '#smooth-wrapper',
           content: '#smooth-content',
           smooth: 0.8,
-          smoothTouch: 0.1,
         })
 
+        return () => {
+          smoother?.kill()
+          smoother = undefined
+        }
+      },
+      shell,
+    )
+
+    mm.add(
+      '(prefers-reduced-motion: no-preference)',
+      () => {
         const header = shell.querySelector<HTMLElement>('.site-header')
         if (header) {
           let headerHidden = false
@@ -119,11 +136,6 @@ onMounted(() => {
               })
             },
           })
-        }
-
-        return () => {
-          smoother?.kill()
-          smoother = undefined
         }
       },
       shell,
