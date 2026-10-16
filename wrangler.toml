@@ -1,0 +1,13 @@
+name = "yule-best"
+compatibility_date = "2026-03-01"
+"$schema" = "node_modules/wrangler/config-schema.json"
+main = "src/worker/index.ts"
+
+[assets]
+directory = "dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+[observability]
+enabled = true

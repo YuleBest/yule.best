@@ -1,0 +1,78 @@
+{
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "public/database/**/*.json": "plaintext"
+  },
+  "css.validate": false,
+  "scss.validate": false,
+  "less.validate": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "tsconfig.json": "tsconfig.*.json, env.d.ts, typed-router.d.ts",
+    "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
+    "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .oxlint*, oxlint*, .oxfmt*, .prettier*, prettier*, .editorconfig, components.json, tailwind.config.*, .env",
+    "wrangler.toml": ".dev.vars"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "search.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/node_modules": true,
+    "**/.wrangler": true,
+    "**/logs": true,
+    "**/dist": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/node_modules": true,
+    "**/.wrangler": true,
+    "**/logs": true,
+    "pnpm-lock.yaml": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/.vite/**": true
+  },
+  "tailwindCSS.files.exclude": [
+    "**/node_modules/**",
+    "**/.git/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.cache/**"
+  ],
+  "tailwindCSS.lint.cssConflict": "ignore",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[vue]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "never",
+      "source.fixAll.oxc": "explicit"
+    }
+  },
+  "js/ts.tsdk.path": "node_modules\\typescript\\lib",
+  "tailwindCSS.lint.suggestCanonicalClasses": "ignore",
+  "js/ts.tsserver.automaticTypeAcquisition.enabled": false,
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": false
+}

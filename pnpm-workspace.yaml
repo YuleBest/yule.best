@@ -1,0 +1,9 @@
+allowBuilds:
+  esbuild: true
+  workerd: true
+
+# geist 只用于取字体文件，其 next peer 不需要安装
+autoInstallPeers: false
+peerDependencyRules:
+  ignoreMissing:
+    - next
